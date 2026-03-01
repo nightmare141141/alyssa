@@ -243,7 +243,13 @@ export default function Home() {
           <h3 className={`text-[2vw] tracking-widest uppercase mb-2 ${aboreto.className}`}>Interior Design</h3>
           <p className={`text-[0.8vw] mb-8 font-bold tracking-wide transition-colors duration-1000 ${inria.className} ${isNight ? 'text-gray-400' : 'text-gray-500'}`}>Adobe Software, AutoCAD, Revit, Enscape</p>
           <h3 className={`text-[2vw] tracking-widest uppercase mb-2 ${aboreto.className}`}>Real Estate</h3>
-          <p className={`text-[0.8vw] font-bold tracking-wide transition-colors duration-1000 ${inria.className} ${isNight ? 'text-gray-400' : 'text-gray-500'}`}>Leveraging interior design expertise to enhance property value, marketability, and spatial potential.</p>
+          <p
+            className={`text-[0.8vw] font-bold tracking-wide transition-colors duration-1000 ${inria.className} ${isNight ? 'text-gray-400' : 'text-gray-500'}`}
+          >
+            Leveraging interior design expertise to enhance property value,
+            <br />
+            marketability, and spatial potential.
+          </p>
         </div>
       </div>
 
