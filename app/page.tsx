@@ -225,7 +225,7 @@ export default function Home() {
       {/* FOOTER */}
       <div ref={footerRef} className={`opacity-0 w-full flex justify-between items-end z-20 h-auto pb-6 px-4 flex-shrink-0 transition-colors duration-1000 ${isNight ? 'text-[#e5e5e5]' : 'text-[#333333]'}`}>
         <div className="flex flex-col ml-35 justify-end">
-          <h2 className={`text-[3vw] leading-none font-light ${aboreto.className}`}>2026</h2>
+          <h2 className={`text-[3vw] leading-none font-light ${aboreto.className}`}>2029</h2>
           <p className={`text-[0.8vw] tracking-wider mt-3 uppercase font-bold transition-colors duration-1000 ${inria.className} ${isNight ? 'text-gray-400' : 'text-gray-500'}`}>University of Wisconsin-Stout</p>
           
           {/* RESUME LINK (Opens in New Tab) */}
