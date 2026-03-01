@@ -2,7 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+// --- ADDED useState to the React import ---
+import { useEffect, useRef, useState } from "react";
+import ContactModal from "@/components/ContactModal";
 import gsap from "gsap";
 import Lenis from "lenis";
 import { Aboreto, Inria_Serif } from "next/font/google";
@@ -18,7 +20,6 @@ const inria = Inria_Serif({
 });
 
 // --- MOCK DATA ---
-// Updated image to /p1.png and added a 'link' property for the hover state
 const projectsData = [
   { id: "01", title: "Coffee Shop", category: "Commercial", image: "/p1.png", link: "/projects/1" },
   { id: "02", title: "Victorian Era", category: "Commercial", image: "/victorian_hero_grid.png", link: "/projects/2" },
@@ -27,6 +28,9 @@ const projectsData = [
 ];
 
 export default function Projects() {
+  // --- ADDED State for the Contact Modal ---
+  const [isContactOpen, setIsContactOpen] = useState(false);
+
   const container = useRef(null);
   const navRef = useRef(null);
   const titleRef = useRef(null);
@@ -138,7 +142,13 @@ export default function Projects() {
         
         <div className="flex gap-10 text-sm tracking-[0.2em] uppercase font-bold text-gray-400 cursor-none">
           <Link href="/about" className="hover:text-black transition-colors cursor-none">About</Link>
-          <Link href="#" className="hover:text-black transition-colors cursor-none">Contact</Link>
+          {/* --- CHANGED: Contact Link to Button --- */}
+          <button 
+            onClick={() => setIsContactOpen(true)} 
+            className="hover:text-black transition-colors cursor-none uppercase tracking-widest"
+          >
+            Contact
+          </button>
           <Link href="/projects" className="text-black transition-colors cursor-none">Projects</Link>
         </div>
       </nav>
@@ -174,7 +184,6 @@ export default function Projects() {
               className="project-card flex-shrink-0 w-[85vw] md:w-[22vw] h-[65vh] md:h-[70vh] flex flex-col opacity-0"
             >
               {/* IMAGE LINK CONTAINER */}
-              {/* Wrapped the entire image block in a Link so it is clickable */}
               <Link 
                 href={project.link} 
                 className="relative w-full flex-1 mb-4 overflow-hidden shadow-xl bg-gray-100 group cursor-none block"
@@ -190,7 +199,6 @@ export default function Projects() {
                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/50 transition-colors duration-700 z-10" />
                  
                  {/* VIEW PROJECT HOVER TEXT */}
-                 {/* Appears in the center of the image on hover */}
                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-20">
                     <span className={`text-white text-sm md:text-base tracking-[0.3em] uppercase border-b border-white/50 pb-1 ${inria.className}`}>
                       View Project
@@ -204,7 +212,6 @@ export default function Projects() {
               </Link>
 
               {/* TEXT DATA */}
-              {/* Changed from text-center to text-right */}
               <div className="text-right cursor-none">
                 <h3 className={`text-xl font-bold tracking-wider uppercase text-[#333333] ${inria.className}`}>
                   {project.title}
@@ -228,6 +235,13 @@ export default function Projects() {
         </button>
 
       </div>
+
+      {/* --- ADDED: The Contact Modal --- */}
+      <ContactModal 
+        isOpen={isContactOpen} 
+        onClose={() => setIsContactOpen(false)} 
+      />
+
     </main>
   );
 }

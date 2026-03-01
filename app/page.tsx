@@ -6,6 +6,7 @@ import gsap from "gsap";
 import Lenis from "lenis";
 import { Aboreto, Inria_Serif } from "next/font/google";
 import Link from "next/link";
+import ContactModal from "../components/ContactModal";
 
 const aboreto = Aboreto({ 
   subsets: ["latin"], 
@@ -19,6 +20,7 @@ const inria = Inria_Serif({
 
 export default function Home() {
   const [isNight, setIsNight] = useState(false);
+  const [isContactOpen, setIsContactOpen] = useState(false); // <-- Added state for Contact Modal
 
   const titleLeft = useRef(null);
   const titleRight = useRef(null);
@@ -161,7 +163,8 @@ export default function Home() {
 
         <div className="flex gap-10 text-sm tracking-[0.2em] uppercase font-bold">
           <Link href="/about" className="hover:opacity-60 transition-opacity">About</Link>
-          <a href="#" className="hover:opacity-60 transition-opacity">Contact</a>
+          {/* <-- Changed this to a button to trigger the Modal --> */}
+          <button onClick={() => setIsContactOpen(true)} className="hover:opacity-60 transition-opacity uppercase tracking-widest">Contact</button>
           <a href="/projects" className="hover:opacity-60 transition-opacity">Projects</a>
         </div>
       </nav>
@@ -243,6 +246,12 @@ export default function Home() {
           <p className={`text-[0.8vw] font-bold tracking-wide transition-colors duration-1000 ${inria.className} ${isNight ? 'text-gray-400' : 'text-gray-500'}`}>Brand deals matter most to me and only</p>
         </div>
       </div>
+
+      {/* <-- ADDED: The Contact Modal --> */}
+      <ContactModal 
+        isOpen={isContactOpen} 
+        onClose={() => setIsContactOpen(false)} 
+      />
 
     </main>
   );
