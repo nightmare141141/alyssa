@@ -40,7 +40,7 @@ const projectsDB: Record<string, any> = {
     materialBoardImage: "/victorian_materials.png",// The digital material board grid
     furniturePlanImage: "/victorian_furniture_plan.png", // The final furniture floor plan
     
-    // Texts transcribed from your design
+    // Texts transcribed from your design and so
     summary1: "Very extravagant and luxurious, lots of textile. Including couches to sit on in every surface is decorated. Incorporating highly decorated elements and lots of soft curves and fabric. Pulling from other furniture for inspiration.",
     summary2: "Discovering floor plans and deep descriptions of measurements. There was a variety of black and white images of houses. This primary source helped identify the style of houses and spacing in the floor plans during the Victorian era. Primary Source The primary source provided rich patterns using silk material and how furniture can affect the space in the Victorian Era. The placement of decorative objects describe elegance and symmetry expressed.",
     processText: "With research, careful considerations were made when developing the floor plan, material selections, fixtures and furnishings, and more. Each element that was developed into the floor plan was chosen for a reason to convict the Victorian Era. Developing research in the beginning helped with the planning process and understanding the why when choosing a material element or furnishing.",
