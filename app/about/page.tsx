@@ -30,8 +30,6 @@ export default function About() {
   const blob2 = useRef(null);
 
   useEffect(() => {
-    // We can keep Lenis initialized just in case of weird device zooming, 
-    // but the layout itself is designed not to scroll.
     const lenis = new Lenis();
     function raf(time: number) {
       lenis.raf(time);
@@ -88,7 +86,6 @@ export default function About() {
   return (
     <main 
       ref={container}
-      // Strictly locked to 100vh with no scrolling allowed
       className="h-screen max-h-screen w-full flex flex-col relative overflow-hidden font-sans bg-white text-[#333333]"
     >
       
@@ -102,7 +99,7 @@ export default function About() {
         className="absolute bottom-[-100px] left-[-100px] w-[600px] h-[600px] rounded-full bg-[#FFD7AF] opacity-30 blur-[120px] pointer-events-none z-0" 
       />
 
-      {/* NAVIGATION - Using standard sizing here so it stays readable */}
+      {/* NAVIGATION */}
       <nav ref={navRef} className="flex-none flex justify-between items-center w-full z-50 h-24 px-6 md:px-12 opacity-0">
         <Link href="/" className={`text-2xl font-bold tracking-widest ${aboreto.className}`}>AS</Link>
         
@@ -118,12 +115,13 @@ export default function About() {
         </div>
       </nav>
 
-      {/* CONTENT GRID - Fills remaining space exactly */}
+      {/* CONTENT GRID */}
       <div className="flex-1 w-full max-w-[1800px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-0 px-6 md:px-12 relative h-full">
         
         {/* LEFT: IMAGE */}
-        <div className="col-span-1 md:col-span-6 relative h-full w-full -ml-10 md:-ml-20 lg:-ml-32 flex items-end pb-[5vh] z-0 pointer-events-none">
-           <div ref={imageRef} className="relative w-full h-[95%] opacity-0">
+        {/* Removed the bottom padding and changed inner div to absolute bottom-0 h-full */}
+        <div className="col-span-1 md:col-span-6 relative h-full w-full -ml-10 md:-ml-20 lg:-ml-32 z-0 pointer-events-none">
+           <div ref={imageRef} className="absolute bottom-0 w-full h-full opacity-0">
              <Image 
                src="/about1.png" 
                alt="Alyssa Smits" 
@@ -134,7 +132,7 @@ export default function About() {
            </div>
         </div>
 
-        {/* RIGHT: TEXT CONTENT - USING VH (Viewport Height) UNITS */} 
+        {/* RIGHT: TEXT CONTENT */} 
         <div ref={textRef} className="col-span-1 md:col-start-7 md:col-span-6 flex flex-col justify-center opacity-0 pl-0 md:pl-[3vw] h-full pb-[5vh] z-10 relative">
             
             {/* Header: Scales perfectly to screen height */}
@@ -145,7 +143,7 @@ export default function About() {
               Rhinelander, WI
             </p>
 
-            {/* Bio Text: Font size and line-height scale dynamically */}
+            {/* Bio Text */}
             <div className={`text-[1.6vh] leading-[1.8] text-justify md:text-left space-y-[2.5vh] text-gray-600 ${inria.className}`}>
               <p>
                 From the moment I entered my first interior design course, my passion has continued to grow. 
@@ -165,7 +163,7 @@ export default function About() {
               </p>
             </div>
 
-            {/* Softwares Section: Margins and Icon sizes use vh */}
+            {/* Softwares Section */}
             <div className="mt-[6vh]">
               <h2 className={`text-[2.5vh] tracking-widest uppercase mb-[3vh] ${aboreto.className}`}>Softwares</h2>
               
