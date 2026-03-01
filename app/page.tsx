@@ -162,7 +162,7 @@ export default function Home() {
         <div className="flex gap-10 text-sm tracking-[0.2em] uppercase font-bold">
           <Link href="/about" className="hover:opacity-60 transition-opacity">About</Link>
           <a href="#" className="hover:opacity-60 transition-opacity">Contact</a>
-          <a href="#" className="hover:opacity-60 transition-opacity">Projects</a>
+          <a href="/projects" className="hover:opacity-60 transition-opacity">Projects</a>
         </div>
       </nav>
 
