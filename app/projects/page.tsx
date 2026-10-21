@@ -23,8 +23,6 @@ const inria = Inria_Serif({
 const projectsData = [
   { id: "01", title: "Coffee Shop", category: "Commercial", image: "/p1.png", link: "/projects/1" },
   { id: "02", title: "Victorian Era", category: "Commercial", image: "/victorian_hero_grid.png", link: "/projects/2" },
-  { id: "03", title: "Coffee Shop", category: "Commercial", image: "/p1.png", link: "/projects/3" },
-  { id: "04", title: "Coffee Shop", category: "Commercial", image: "/p1.png", link: "/projects/4" },
 ];
 
 export default function Projects() {

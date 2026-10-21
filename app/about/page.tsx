@@ -18,6 +18,14 @@ const inria = Inria_Serif({
   weight: ["300", "400", "700"]
 });
 
+const softwareLogos = [
+  { name: "Adobe Photoshop", src: "/software-logos/photoshop.svg" },
+  { name: "Adobe InDesign", src: "/software-logos/indesign.svg" },
+  { name: "Autodesk Revit", src: "/software-logos/revit.svg" },
+  { name: "AutoCAD", src: "/software-logos/autocad.svg" },
+  { name: "Enscape", src: "/software-logos/enscape.svg" },
+];
+
 export default function About() {
   const [isContactOpen, setIsContactOpen] = useState(false);
 
@@ -167,37 +175,23 @@ export default function About() {
             <div className="mt-[6vh]">
               <h2 className={`text-[2.5vh] tracking-widest uppercase mb-[3vh] ${aboreto.className}`}>Softwares</h2>
               
-              <div className="flex flex-wrap gap-[2vh] items-center">
-                
-                {/* 1. Photoshop (Ps) */}
-                <div className="w-[7vh] h-[7vh] border-2 border-black text-black flex justify-center items-center text-[2.5vh] font-bold">
-                  Ps
-                </div>
-
-                {/* 2. InDesign (Id) */}
-                <div className="w-[7vh] h-[7vh] border-2 border-black text-black flex justify-center items-center text-[2.5vh] font-bold">
-                  Id
-                </div>
-
-                {/* 3. Revit (R) */}
-                <div className="w-[7vh] h-[7vh] bg-black text-white flex justify-center items-center text-[3vh] font-bold">
-                  R
-                </div>
-
-                {/* 4. AutoCAD (A) */}
-                <div className="w-[7vh] h-[7vh] bg-black text-white flex justify-center items-center text-[3vh] font-bold">
-                  A
-                </div>
-
-                {/* 5. Enscape (Cube Icon) */}
-                <div className="w-[7vh] h-[7vh] flex justify-center items-center">
-                   <svg className="w-[60%] h-[60%]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                      <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                      <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                   </svg>
-                </div>
-
+              <div className="flex flex-wrap gap-x-[3vh] gap-y-[2vh] items-start">
+                {softwareLogos.map((software) => (
+                  <div key={software.name} className="flex w-[9vh] flex-col items-center gap-[1vh]">
+                    <div className="relative h-[7vh] w-[9vh]">
+                      <Image
+                        src={software.src}
+                        alt={`${software.name} logo`}
+                        fill
+                        sizes="9vh"
+                        className="object-contain"
+                      />
+                    </div>
+                    <span className={`text-center text-[1.2vh] leading-tight text-gray-500 ${inria.className}`}>
+                      {software.name.replace("Adobe ", "")}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
 

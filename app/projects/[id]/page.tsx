@@ -22,7 +22,6 @@ const projectsDB: Record<string, any> = {
     heroImage: "/p1.png",       
     moodboardImage: "/moodboard_collage.png", 
     floorPlanImage: "/floor_plan.png",
-    renderComposite: "/p1.png", 
     summary1: "Rooted in modern beauty this coffee shop is in the heart of Minneapolis city full of residents who are coffee addicts. This shop serves as a public sanctuary within the urban landscape. Designed to evoke the tranquility of a secluded resort. Every space is useful and serves a purpose.",
     summary2: "Designed to evoke the tranquility of a secluded resort. Every space is useful and serves a purpose.",
     detailedDescription: "The design prioritized organic shapes and natural textures. A winding serpentine sofa serves as the central anchor, guiding the flow of traffic while providing ample collaborative seating. Acoustic considerations were paramount, leading to the use of sound-dampening ceiling baffles and soft-touch upholstery throughout.",
@@ -38,7 +37,6 @@ const projectsDB: Record<string, any> = {
     processImage: "/victorian_process_plan.png",   // Empty floor plan next to process text
     doublePlanImage: "/victorian_double_plan.png", // The two plans side-by-side
     materialBoardImage: "/victorian_materials.png",// The digital material board grid
-    furniturePlanImage: "/victorian_furniture_plan.png", // The final furniture floor plan
     
     // Texts transcribed from your design and so
     summary1: "Very extravagant and luxurious, lots of textile. Including couches to sit on in every surface is decorated. Incorporating highly decorated elements and lots of soft curves and fabric. Pulling from other furniture for inspiration.",
@@ -124,20 +122,6 @@ export default function ProjectCaseStudy() {
           </div>
         </div>
 
-        {/* RENDERS */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-12 px-8 md:px-16 xl:px-24 pt-20 pb-20 z-20 max-w-[1800px] mx-auto relative overflow-hidden">
-          <div className="md:col-span-8 flex flex-col gap-10 z-10">
-            <h2 className={`text-3xl tracking-widest uppercase ${aboreto.className}`}>Rendered 3D View 1</h2>
-            <div className="relative w-full aspect-[4/3] md:aspect-[3/4] xl:aspect-[4/5] bg-gray-50 shadow-lg border border-gray-100">
-                  <Image src={project.renderComposite} alt="Stacked 3D Render Views" fill className="object-contain" />
-            </div>
-          </div>
-          <div className="md:col-span-4 flex flex-col justify-start md:pt-20 z-10">
-            <div className="w-12 h-12 bg-[#8f947b]/20 text-[#8f947b] rounded-lg flex justify-center items-center text-xl font-bold mb-6">{project.id}</div>
-            <h3 className={`text-sm tracking-[0.2em] uppercase font-bold text-gray-500 mb-6 ${inria.className}`}>Material Selection & Specifications</h3>
-            <p className={`mt-10 text-gray-500 text-[14px] leading-relaxed ${inria.className}`}>{project.detailedDescription}</p>
-          </div>
-        </div>
       </main>
     );
   }
@@ -214,16 +198,6 @@ export default function ProjectCaseStudy() {
           <h2 className={`text-center text-3xl tracking-[0.2em] uppercase mb-16 ${aboreto.className}`}>Digital Material Board</h2>
           <div className="relative w-full aspect-[16/9]">
             <Image src={project.materialBoardImage} alt="Material Board" fill className="object-contain" />
-          </div>
-        </div>
-
-        <div className="w-full h-[1px] bg-gray-200 my-16 mx-auto max-w-[1800px]"></div>
-
-        {/* SECTION 5: FURNITURE FLOOR PLAN */}
-        <div className="w-full px-8 md:px-16 xl:px-24 max-w-[1800px] mx-auto flex flex-col items-center pb-20">
-          <h2 className={`text-center text-3xl tracking-[0.2em] uppercase mb-16 ${aboreto.className}`}>Furniture Floor Plan</h2>
-          <div className="relative w-full max-w-5xl aspect-[4/3]">
-            <Image src={project.furniturePlanImage} alt="Furniture Floor Plan" fill className="object-contain" />
           </div>
         </div>
 
